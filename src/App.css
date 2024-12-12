@@ -1,0 +1,127 @@
+:root {
+  --white-clr: #fff;
+  --gradient-color-blue: linear-gradient(90deg, rgba(49, 56, 96, 1) 0%, rgba(21, 25, 40, 1) 100%);
+  --black-clr: #000;
+  --grey-clr: #2D3748;
+  --light-green: #4FD1C5
+}
+
+body {
+  font-family: "Poppins", serif !important;
+}
+
+
+
+
+/* header */
+
+.navbar-custom{
+  position: absolute !important;
+  top: 0;
+  left:0;
+  z-index: 11;
+  right: 0;
+  padding: 20px 0 0 !important;
+}
+
+.nav-blur-bg {
+  background: hsl(0deg 0% 100% / 78%);
+  padding: 10px;
+  border-radius: 12px;
+  backdrop-filter: blur(20px);
+}
+.navbar-custom .nav-link {
+  padding: 0 20px !important;
+  text-transform: uppercase;
+  color: var(--grey-clr);
+  font-weight: 500;
+}
+
+.Download-btn {
+  width: 150px;
+  height: 35px;
+  background: rgb(49, 56, 96);
+  background: var(--gradient-color-blue);
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: var(--white-clr);
+}
+
+
+.footer-web {
+  height: 70px;
+  display: flex;
+  align-items: center;
+}
+
+.footer-web p {
+  margin-bottom: 0;
+}
+
+.footer-web p span {
+  color: var(--light-green);
+}
+
+
+/* sing in */
+
+
+.section-big-2 {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  height: calc(100vh - 70px);
+  position: relative;
+}
+
+.box-50 {
+  flex: 0 0 50%;
+  max-width: 50%;
+  height: 100%;
+}
+
+.box-50 img{
+  height: 100%;
+  width: 100%;
+  object-fit: fill;
+}
+
+.login-box h2{
+  color: var(--light-green);
+  font-weight: 600;
+}
+
+.login-box p{
+  color: var(--grey-clr);
+}
+
+
+.login-box input {
+  height: 50px;
+  margin-top: 4px;
+  border-radius: 12px;
+}
+
+input[type="checkbox"]{
+  height: 20px;
+}
+
+
+.btn-form-submit{
+  width: 100%;
+  height: 50px;
+  background: var(--light-green) !important;
+  border: var(--light-green) !important;
+
+}
+
+.login-box p a{
+  color: var(--light-green);
+}
+
+.login-box {
+  margin-top: 20%;
+}
