@@ -1,16 +1,22 @@
 import React from 'react';
 import splashbg from '../../Assets/splash-bg.jpg';
-import Header from '../../Components/Header/Header';
-import Footer from '../../Components/Footer/Footer';
+import Footer from '../../Components/Footer/Footer'
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { Row, Col, Container } from 'react-bootstrap';
+import Header from '../../Components/Header/Header';
 
 
 export default function Signin() {
+    const buttonStyle = {
+        color: "#4FD1C5",
+        textDecoration: "none"
+      };
     return (
         <div>
-            <Header />
+
+            <Header/>
+      
 
             <div className='section-big-2'>
                 <div className='box-50'>
@@ -43,7 +49,7 @@ export default function Signin() {
                                         </Button>
                                         
                                     </Form>
-                                    <p className='text-center'>Don't have an account? <a href="#">Sign up</a></p>
+                                    <p className='text-center'>Don't have an account? <a href="/signup" style={buttonStyle} >Sign up</a></p>
                                 </div>
                             </Col>
                         </Row>
@@ -57,8 +63,8 @@ export default function Signin() {
                 </div>
 
             </div>
-
-            <Footer />
+        <Footer/>
+         
         </div>
     )
 }
