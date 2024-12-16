@@ -28,7 +28,7 @@ export default function Dashboardheader() {
 
                         </Form>
 
-                        <a href='#'><FaUser /> Sign In</a>
+                        <a href='/login'><FaUser /> Sign In</a>
                         <a href='#'><FaCog /></a>
                         <a href='#'><FaBell /></a>
 

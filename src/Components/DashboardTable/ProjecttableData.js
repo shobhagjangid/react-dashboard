@@ -11,6 +11,7 @@ import icon3 from '../../Assets/bit.png';
 import icon4 from '../../Assets/invision.png';
 import icon5 from '../../Assets/Icon.png';
 import icon6 from '../../Assets/fix.png';
+import { Status } from '@chakra-ui/react';
 
 
 export default function ProjectTableData() {
@@ -23,6 +24,7 @@ export default function ProjectTableData() {
       isPositive: true,
       icon: Usericon5 ,
       iconnew: icon1,
+      Status: 'Working',
     },
     {
       title: "Add Progress Track",
@@ -32,6 +34,7 @@ export default function ProjectTableData() {
       isPositive: true,
       icon: Usericon2 ,
       iconnew: icon2,
+      Status: 'Canceled',
     },
     {
         title: "Fix Platform Errors",
@@ -41,16 +44,18 @@ export default function ProjectTableData() {
         isPositive: true,
        icon: Usericon2 ,
        iconnew: icon3,
+       Status: 'Working',
     },
 
     {
         title: "Launch our Mobile App",
         value: "$1200,000",
         budget: "$32,000",
-        completion: 85,
+        completion: 100,
         isPositive: true,
        icon: Usericon4 ,
        iconnew: icon4,
+       Status: 'Done',
     },
 
     {
@@ -61,6 +66,7 @@ export default function ProjectTableData() {
         isPositive: true,
        icon: Usericon5 ,
        iconnew: icon5,
+       Status: 'Working',
     },
 
     {
@@ -71,6 +77,7 @@ export default function ProjectTableData() {
         isPositive: true,
        icon: Usericon2 ,
        iconnew: icon6,
+       Status: 'Working',
     },
   ];
 

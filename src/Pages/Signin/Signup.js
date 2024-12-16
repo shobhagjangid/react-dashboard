@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Header from '../../Components/Header/Header';
+import Footer from '../../Components/Footer/Footer';
 import coverbg from '../../Assets/singup-cover.jpg';
 import { Container, Row, Col } from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
@@ -99,7 +100,7 @@ export default function Signup() {
       </Container>
 
 
-
+<Footer/>
 
     </>
   )

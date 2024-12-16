@@ -26,7 +26,7 @@ const styles = {
     padding: "20px",
     borderRadius: "10px",
     backgroundColor: "#f8f9fa",
-    boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+    boxShadow: "rgb(0 0 0 / 5%) 0px 3.4px 5px",
     
   },
   title: {

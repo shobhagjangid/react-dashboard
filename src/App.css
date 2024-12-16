@@ -237,7 +237,7 @@ input[type="checkbox"] {
 
 .dashboard-body {
   min-height: 100vh;
-  background-color: #f5f5f5;
+  background-color: #F8F9FA;
   padding: 15px 0;
 }
 
@@ -246,7 +246,7 @@ input[type="checkbox"] {
   margin-top: 30px;
   padding: 15px;
   background-Color: #f8f9fa;
-  box-Shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-Shadow: rgb(0 0 0 / 5%) 0px 3.4px 5px;
   border-radius: 10px;
 }
 
@@ -265,10 +265,125 @@ input[type="checkbox"] {
   height: 5px !important;
 }
 
-.progress-bar{ 
-background: var(--light-green) !important;
+.progress-bar {
+  background: var(--light-green) !important;
 }
 
 .table-box tr td {
   vertical-align: middle;
+}
+
+
+/* sidebar */
+
+.Sidebar-box {
+  padding: 20px 30px;
+}
+
+.Sidebar-box a img {
+  padding-bottom: 20px;
+  width: 80%;
+}
+
+
+.logo-sidebar {
+  text-align: center;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid #E0E1E2;
+  margin-bottom: 30px;
+}
+
+/*  */
+
+.sidebar-nav {
+  padding-left: 0;
+}
+
+.sidebar-nav li {
+  display: block;
+}
+
+.sidebar-nav li a {
+  text-decoration: none;
+  padding: 10px 15px;
+  width: 100%;
+  display: flex;
+  color: #A0AEC0;
+  line-height: 30px;
+}
+
+.sidebar-nav li a span {
+  width: 30px;
+  height: 30px;
+  /* background: var(--light-green); */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+  border-radius: 12px;
+  padding-left: 4px;
+  color: var(--light-green)
+}
+
+
+.Sidebar-box h5 {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+
+/*  */
+
+
+.sidebar-nav li a.active {
+  background: #fff;
+  box-shadow: rgb(0 0 0 / 2%) 0px 3.4px 5px;
+  border-radius: 12px;
+  color: var(--black-clr);
+  font-weight: 500;
+}
+
+.sidebar-nav li a.active span {
+  background: var(--light-green);
+  color: var(--white-clr);
+}
+
+
+.two-box {
+  padding-left: 55px !important;
+  position: relative;
+}
+
+.two-box img {
+  position: absolute;
+  left: 0;
+  top: 10px;
+}
+
+/*  */
+
+.s-row {
+  color: #666;
+  font-size: 14px;
+}
+
+.Offline {
+  padding: 4px 10px;
+  background: #CBD5E0;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #fff;
+}
+
+span.Online {
+  padding: 4px 10px;
+  background: var(--bs-teal);
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #fff;
 }

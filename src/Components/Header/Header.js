@@ -21,7 +21,7 @@ export default function Header() {
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="ms-auto me-auto">
                             <Nav.Link href="/dashboard"> <BsBoxFill />  Dashboard</Nav.Link>
-                            <Nav.Link href="#features"><BiSolidUser /> Profile</Nav.Link>
+                            <Nav.Link href="/Profile"><BiSolidUser /> Profile</Nav.Link>
                             <Nav.Link href="/signup"><FaUserCircle /> Sign up</Nav.Link>
                             <Nav.Link href="/Login"><IoKey /> Sign In</Nav.Link>
 
