@@ -376,7 +376,7 @@ input[type="checkbox"] {
   border-radius: 8px;
   font-size: 14px;
   font-weight: 500;
-  color: #fff;
+  color: var(--white-clr);
 }
 
 span.Online {
@@ -385,5 +385,284 @@ span.Online {
   border-radius: 8px;
   font-size: 14px;
   font-weight: 500;
+  color: var(--white-clr);
+}
+
+
+.pagination li a {
+  color: var(--black-clr);
+}
+
+.pagination li.active span {
+  background-color: var(--light-green);
+  border: var(--light-green);
+}
+
+
+
+.salary-card {
+  background: #fff;
+  padding: 15px;
+  box-shadow: rgb(0 0 0 / 2%) 0px 3.4px 5px;
+  border-radius: 12px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+
+.salary-card span {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--light-green);
+  border-radius: 12px;
+  font-size: 22px;
   color: #fff;
+  margin-bottom: 10px;
+}
+
+.salary-card h6 {
+  font-size: 18px;
+  margin-bottom: 0;
+}
+
+.salary-card p {
+  margin-bottom: 0;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 6px;
+  font-size: 14px;
+  color: #666;
+}
+
+.payment-method {
+  padding: 15px;
+  background: #fff;
+  box-shadow: rgb(0 0 0 / 2%) 0px 3.4px 5px;
+  border-radius: 12px;
+}
+
+.payment-method p {
+  margin-bottom: 0;
+}
+
+.add-new-card {
+  width: 135px;
+  height: 35px;
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  background: var(--gradient-color-blue);
+  border-radius: 8px;
+  color: #fff;
+}
+
+.payment-method input {
+  padding: 15px;
+  padding-left: 50px;
+}
+
+.custom-payment-opt,
+.custom-payment-opt2 {
+  position: relative;
+}
+
+.custom-payment-opt input {
+  background: url(../src/Assets/Mastercard-Icon.png) no-repeat;
+  background-position: 15px center;
+}
+
+.custom-payment-opt2 input {
+  background: url(../src/Assets/visa.png) no-repeat;
+  background-position: 15px center;
+}
+
+
+/*  */
+
+.View-all {
+  text-decoration: none;
+  font-size: 14px;
+  border: 1px solid var(--light-green);
+  color: var(--light-green);
+  padding: 4px 14px;
+  border-radius: 8px;
+}
+
+
+.date-e {
+  font-size: 14px;
+}
+
+.file-down {
+  color: #b0b0b0;
+  width: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  line-height: 10px;
+}
+
+.file-down a {
+  color: #000;
+}
+
+.date-e p {
+  font-weight: 600;
+}
+
+.date-e small {
+  color: #666;
+}
+
+/*  */
+
+
+.billing-detail {
+  padding: 15px;
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  background: #F8F9FA;
+  border-radius: 12px;
+  margin-top: 10px;
+}
+
+.biller-name {
+  max-width: 200px;
+}
+
+.biller-name p {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.biller-name p small {font-size: 12px;color: #959595;}
+
+.action {
+  width: 100%;
+  max-width: 200px;
+  display: flex;
+  justify-content: flex-end;
+  font-size: 12px;
+}
+
+.action a {
+  text-decoration: none;
+  line-height: 20px;
+  padding-left: 14px;
+}
+
+.delete {
+  color: #f00;
+}
+
+.edit {
+  color: var(--grey-clr);
+}
+
+
+.transaction-deal {
+  display: flex;
+  align-items: center;
+}
+
+.transaction-deal span {
+  padding-right: 15px;
+}
+
+.font-18{
+  font-size: 18px;
+}
+
+
+/* help card */
+
+
+.help-card {
+  background-color: #5cd3c5; /* Teal color background */
+  border-radius: 10px;
+  padding: 20px;
+  text-align: left;
+  position: relative;
+  width: 280px;
+  margin: 20px auto;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Radial background design */
+.help-card::before {
+  content: "";
+  position: absolute;
+  top: -20%;
+  left: -20%;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.2), transparent);
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.icon-container {
+  background-color: #ffffff;
+  border-radius: 50%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 1;
+}
+
+.question-icon {
+  color: #5cd3c5;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.text-content {
+  color: #ffffff;
+  position: relative;
+  z-index: 1;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.subtitle {
+  font-size: 14px;
+  margin: 5px 0 15px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.help-button {
+  background-color: #ffffff;
+  color: #333;
+  border: none;
+  padding: 10px 20px;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.help-button:hover {
+  background-color: #f1f1f1;
 }

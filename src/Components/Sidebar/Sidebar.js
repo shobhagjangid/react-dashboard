@@ -78,6 +78,22 @@ export default function Sidebar() {
 
 
                     </ul>
+
+                    <div className="help-card">
+      {/* Question Icon */}
+      <div className="icon-container">
+        <span className="question-icon">?</span>
+      </div>
+
+      {/* Text Content */}
+      <div className="text-content">
+        <h2 className="title">Need help?</h2>
+        <p className="subtitle">Please check our docs</p>
+      </div>
+
+      {/* Button */}
+      <button className="help-button">DOCUMENTATION</button>
+    </div>
                 </div>
             </Col>
         </>

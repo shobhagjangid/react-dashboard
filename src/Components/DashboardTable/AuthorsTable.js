@@ -6,7 +6,7 @@ export default function AuthorsTable() {
   const [tabData, setTabData] = useState([]); // State to store user data
   const [loading, setLoading] = useState(true); // Loading state
   const [error, setError] = useState(null); // Error state
-  const [rowsPerPage] = useState(10); // Rows to display per page
+  const [rowsPerPage] = useState(6); // Rows to display per page
   const [currentPage, setCurrentPage] = useState(1);
 
   // Fetch data from API
