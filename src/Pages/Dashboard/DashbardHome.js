@@ -57,8 +57,19 @@ export default function DashbardHome() {
 
                         <Col md={9}>
 
-                            <Dashboardheader />
+                            <div className='dashboard-top-nav'>
+                                <Row>
+                                    <Col md={6}>
+                                        <div className='let-nav'>
+                                            <p className='mb-0'><small>Pages / Dashboard</small></p>
+                                            <p className='mb-0'>Dashboard</p>
+                                        </div>
+                                    </Col>
 
+                                    <Dashboardheader />
+
+                                </Row>
+                            </div>
 
                             <div className='row' >
                                 {cardsData.map((card, index) => (

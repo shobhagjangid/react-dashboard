@@ -9,20 +9,20 @@ import { FaWallet, FaPaypal } from "react-icons/fa6";
 import { FaFileAlt, FaTrash, FaPen } from "react-icons/fa";
 import { IoCalendarOutline } from "react-icons/io5";
 import { IoArrowDownCircleOutline } from "react-icons/io5";
-import { SlArrowUpCircle, SlArrowDownCircle  } from "react-icons/sl";
+import { SlArrowUpCircle, SlArrowDownCircle } from "react-icons/sl";
 
 export default function Billing() {
     const style = {
-        reddown : {
-            color:"#f00",
-            fontSize:"30px",
-            lineHeight:"30px",
-        } ,
+        reddown: {
+            color: "#f00",
+            fontSize: "30px",
+            lineHeight: "30px",
+        },
 
-        greenup : {
-            color:"#48BB78",
-            fontSize:"30px",
-            lineHeight:"30px",     
+        greenup: {
+            color: "#48BB78",
+            fontSize: "30px",
+            lineHeight: "30px",
         }
     }
     return (
@@ -32,7 +32,19 @@ export default function Billing() {
                     <Row>
                         <Sidebar />
                         <Col md={9}>
-                            <Dashboardheader />
+
+                            <div className='dashboard-top-nav'>
+                                <Row>
+                                    <Col md={6}>
+                                        <div className='let-nav'>
+                                            <p className='mb-0'><small>Pages / Billing</small></p>
+                                            <p className='mb-0'>Billing</p>
+                                        </div>
+                                    </Col>
+                                    <Dashboardheader />
+
+                                </Row>
+                            </div>
 
                             <Row>
                                 <Col lg='8'>
@@ -281,17 +293,17 @@ export default function Billing() {
                                         <div className='d-flex justify-content-between align-items-center mt-3 mb-3'>
                                             <div className='date-e transaction-deal'>
                                                 <span style={style.reddown}>
-                                            <SlArrowDownCircle />
-                                            </span>
-                                            <span>
-                                                <p>Netflix</p>
-                                                <small>27 March 2020, at 12:30 PM</small>
+                                                    <SlArrowDownCircle />
+                                                </span>
+                                                <span>
+                                                    <p>Netflix</p>
+                                                    <small>27 March 2020, at 12:30 PM</small>
                                                 </span>
                                             </div>
 
                                             <div className='file-down'>
                                                 <span className='text-danger'> <b> -$2500 </b></span>
-                                                
+
                                             </div>
 
                                         </div>
@@ -300,17 +312,17 @@ export default function Billing() {
                                         <div className='d-flex justify-content-between align-items-center mt-3 mb-3'>
                                             <div className='date-e transaction-deal'>
                                                 <span style={style.greenup}>
-                                                <SlArrowUpCircle />
-                                            </span>
-                                            <span>
-                                                <p>Netflix</p>
-                                                <small>27 March 2020, at 12:30 PM</small>
+                                                    <SlArrowUpCircle />
+                                                </span>
+                                                <span>
+                                                    <p>Netflix</p>
+                                                    <small>27 March 2020, at 12:30 PM</small>
                                                 </span>
                                             </div>
 
                                             <div className='file-down'>
                                                 <span className='text-success'> <b> -$2500 </b></span>
-                                                
+
                                             </div>
 
                                         </div>
@@ -321,17 +333,17 @@ export default function Billing() {
                                         <div className='d-flex justify-content-between align-items-center mt-3 mb-3'>
                                             <div className='date-e transaction-deal'>
                                                 <span style={style.greenup}>
-                                                <SlArrowUpCircle />
-                                            </span>
-                                            <span>
-                                                <p>Stripe</p>
-                                                <small>26 March 2020, at 13:45 PM</small>
+                                                    <SlArrowUpCircle />
+                                                </span>
+                                                <span>
+                                                    <p>Stripe</p>
+                                                    <small>26 March 2020, at 13:45 PM</small>
                                                 </span>
                                             </div>
 
                                             <div className='file-down'>
                                                 <span className='text-success'> <b> -$800 </b></span>
-                                                
+
                                             </div>
 
                                         </div>
@@ -339,17 +351,17 @@ export default function Billing() {
                                         <div className='d-flex justify-content-between align-items-center mt-3 mb-3'>
                                             <div className='date-e transaction-deal'>
                                                 <span style={style.greenup}>
-                                                <SlArrowUpCircle />
-                                            </span>
-                                            <span>
-                                                <p>HubSpot</p>
-                                                <small>26 March 2020, at 12:30 PM</small>
+                                                    <SlArrowUpCircle />
+                                                </span>
+                                                <span>
+                                                    <p>HubSpot</p>
+                                                    <small>26 March 2020, at 12:30 PM</small>
                                                 </span>
                                             </div>
 
                                             <div className='file-down'>
                                                 <span className='text-success'> <b> -$1700 </b></span>
-                                                
+
                                             </div>
 
                                         </div>
@@ -358,17 +370,17 @@ export default function Billing() {
                                         <div className='d-flex justify-content-between align-items-center mt-3 mb-3'>
                                             <div className='date-e transaction-deal'>
                                                 <span style={style.reddown}>
-                                                <SlArrowDownCircle />
-                                            </span>
-                                            <span>
-                                                <p>Webflow</p>
-                                                <small>26 March 2020, at 05:00 AM</small>
+                                                    <SlArrowDownCircle />
+                                                </span>
+                                                <span>
+                                                    <p>Webflow</p>
+                                                    <small>26 March 2020, at 05:00 AM</small>
                                                 </span>
                                             </div>
 
                                             <div className='file-down'>
                                                 <span className='text-danger'> <b> -$987 </b></span>
-                                                
+
                                             </div>
 
                                         </div>

@@ -22,17 +22,29 @@ export default function Tables() {
                     <Row>
                         <Sidebar />
                         <Col md={9}>
-                            <Dashboardheader />
+                            <div className='dashboard-top-nav'>
+                                <Row>
+                                    <Col md={6}>
+                                        <div className='let-nav'>
+                                            <p className='mb-0'><small>Pages / Tables</small></p>
+                                            <p className='mb-0'>Tables</p>
+                                        </div>
+                                    </Col>
+
+                                    <Dashboardheader />
+
+                                </Row>
+                            </div>
 
                             <div className='table-box auth-table'>
                                 <Row>
                                     <Col md={12} className='justify-content-between d-flex align-items-center' >
-                                        <h4 className='mb-2'>Authors Table</h4>                                       
+                                        <h4 className='mb-2'>Authors Table</h4>
                                     </Col>
-                                    </Row>
-                                    <AuthorsTable />
+                                </Row>
+                                <AuthorsTable />
 
-                              
+
 
                             </div>
 

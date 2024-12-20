@@ -214,7 +214,7 @@ input[type="checkbox"] {
 
 .dashboard-top-nav {
   padding: 10px 15px;
-  background: #fff;
+  background: hsl(0deg 0% 100% / 38%);
   border-radius: 15px;
   backdrop-filter: blur(20px);
   margin-bottom: 20px;
@@ -545,7 +545,10 @@ span.Online {
   font-weight: 500;
 }
 
-.biller-name p small {font-size: 12px;color: #959595;}
+.biller-name p small {
+  font-size: 12px;
+  color: #959595;
+}
 
 .action {
   width: 100%;
@@ -579,7 +582,7 @@ span.Online {
   padding-right: 15px;
 }
 
-.font-18{
+.font-18 {
   font-size: 18px;
 }
 
@@ -588,7 +591,8 @@ span.Online {
 
 
 .help-card {
-  background-color: #5cd3c5; /* Teal color background */
+  background-color: #5cd3c5;
+  /* Teal color background */
   border-radius: 10px;
   padding: 20px;
   text-align: left;
@@ -665,4 +669,77 @@ span.Online {
 
 .help-button:hover {
   background-color: #f1f1f1;
+}
+
+/* Profile */
+
+.author-bio {
+  display: flex;
+  align-items: center;
+}
+
+.user-names {
+  margin-left: 15px;
+}
+
+
+.overlay-links {
+  margin-bottom: 0;
+  padding-left: 0;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  list-style: none;
+  justify-content: flex-end;
+}
+
+.overlay-links li {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.overlay-links li a {
+  color: var(--grey-clr);
+  text-decoration: NONE;
+  font-size: 14px;
+}
+
+
+.author-profile {
+  margin-top: -45px;
+  margin-left: 15px;
+  margin-right: 15px;
+  background: hsl(0deg 0% 100% / 53%);
+  position: relative;
+  padding: 15px;
+  border-radius: 12px;
+  backdrop-filter: blur(20px);
+}
+
+.active-li {
+  background: var(--white-clr);
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 12px;
+  box-shadow: rgb(0 0 0 / 5%) 0px 3.4px 5px;
+}
+
+.form-check-label {
+  font-size: 14px;
+}
+
+.switch-panel {
+  padding: 15px;
+  box-shadow: rgb(0 0 0 / 2%) 0px 3.4px 5px;
+  border-radius: 12px;
+  background: var(--white-clr);
+}
+
+.form-check-input:checked{
+  background-color: var(--light-green) !important;
+  border: var(--light-green) !important; 
+}
+
+.form-check.form-switch {
+  margin: 10px 0px;
 }
