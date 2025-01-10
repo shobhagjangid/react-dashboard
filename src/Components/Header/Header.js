@@ -20,8 +20,8 @@ export default function Header() {
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="ms-auto me-auto">
-                            <Nav.Link href="/dashboard"> <BsBoxFill />  Dashboard</Nav.Link>
-                            <Nav.Link href="/Profile"><BiSolidUser /> Profile</Nav.Link>
+                            <Nav.Link href=""> <BsBoxFill />  Dashboard</Nav.Link>
+                            <Nav.Link href=""><BiSolidUser /> Profile</Nav.Link>
                             <Nav.Link href="/signup"><FaUserCircle /> Sign up</Nav.Link>
                             <Nav.Link href="/Login"><IoKey /> Sign In</Nav.Link>
 

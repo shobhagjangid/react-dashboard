@@ -1,112 +1,99 @@
-import React from 'react';
-import { Table } from 'react-bootstrap';
+import React, { useState, useEffect } from 'react';
+import { Table, Pagination } from 'react-bootstrap';
 import ProgressBar from 'react-bootstrap/ProgressBar';
-import Usericon2 from '../../Assets/user2.png';
-import Usericon4 from '../../Assets/user4.png';
-import Usericon5 from '../../Assets/user5.png';
 
-import icon1 from '../../Assets/Adobe_XD_CC_icon 1.png';
-import icon2 from '../../Assets/spotify.png';
-import icon3 from '../../Assets/bit.png';
-import icon4 from '../../Assets/invision.png';
-import icon5 from '../../Assets/Icon.png';
-import icon6 from '../../Assets/fix.png';
-import { Status } from '@chakra-ui/react';
+export default function ProjectTable2() {
+  const [tabData, setTabData] = useState([]); // State to store fetched data
+  const [loading, setLoading] = useState(true); // Loading state
+  const [error, setError] = useState(null); // Error state
+  const [rowsPerPage] = useState(6); // Number of rows per page
+  const [currentPage, setCurrentPage] = useState(1);
 
+  // Fetch data from API
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch('https://zenpex.in/react-dashboard/wp-json/custom/v1/posts');
+        const result = await response.json();
+        setTabData(result.data); // Assume 'data' contains the array of posts
+        setLoading(false);
+      } catch (err) {
+        setError(err.message);
+        setLoading(false);
+      }
+    };
 
-export default function ProjectTableData() {
-  const tabData = [
-    {
-      title: "Chakra Soft UI Version",
-      value: "$53,000",
-      budget: "$14,000",
-      completion: 70,
-      isPositive: true,
-      icon: Usericon5 ,
-      iconnew: icon1,
-      Status: 'Working',
-    },
-    {
-      title: "Add Progress Track",
-      value: "$120,000",
-      budget: "$3,000",
-      completion: 10,
-      isPositive: true,
-      icon: Usericon2 ,
-      iconnew: icon2,
-      Status: 'Canceled',
-    },
-    {
-        title: "Fix Platform Errors",
-        value: "$1200,000",
-        budget: "Not set",
-        completion: 100,
-        isPositive: true,
-       icon: Usericon2 ,
-       iconnew: icon3,
-       Status: 'Working',
-    },
+    fetchData();
+  }, []);
 
-    {
-        title: "Launch our Mobile App",
-        value: "$1200,000",
-        budget: "$32,000",
-        completion: 100,
-        isPositive: true,
-       icon: Usericon4 ,
-       iconnew: icon4,
-       Status: 'Done',
-    },
+  // Handle page change
+  const handlePageChange = (pageNumber) => setCurrentPage(pageNumber);
 
-    {
-        title: "Add the New Pricing Page",
-        value: "$1200,000",
-        budget: "$400",
-        completion: 25,
-        isPositive: true,
-       icon: Usericon5 ,
-       iconnew: icon5,
-       Status: 'Working',
-    },
+  // Pagination logic
+  const indexOfLastRow = currentPage * rowsPerPage;
+  const indexOfFirstRow = indexOfLastRow - rowsPerPage;
+  const currentRows = tabData.slice(indexOfFirstRow, indexOfLastRow);
 
-    {
-        title: "Redesign New Online Shop",
-        value: "$1200,000",
-        budget: "$7,600",
-        completion: 40,
-        isPositive: true,
-       icon: Usericon2 ,
-       iconnew: icon6,
-       Status: 'Working',
-    },
-  ];
+  // Generate pagination items
+  const totalPages = Math.ceil(tabData.length / rowsPerPage);
+  const paginationItems = [];
+  for (let i = 1; i <= totalPages; i++) {
+    paginationItems.push(
+      <Pagination.Item
+        key={i}
+        active={i === currentPage}
+        onClick={() => handlePageChange(i)}
+      >
+        {i}
+      </Pagination.Item>
+    );
+  }
+
+  if (loading) {
+    return <div>Loading...</div>; // Show loading state
+  }
+
+  if (error) {
+    return <div>Error: {error}</div>; // Show error message
+  }
 
   return (
-    
-    <Table hover>
+    <div>
+      <Table hover>
         <thead>
-            <tr>
-                <th>COMPANIES</th>
-                <th>MEMBERS</th>
-                <th>BUDGET</th>
-                <th>COMPLETION</th>
-            </tr>
-        </thead>
-      
-      <tbody>
-        {tabData.map((td, index) => (
-          <tr key={index}>
-           
-            <td><img src={td.iconnew} className='img-fluid' alt={td.title}/> &nbsp; {td.title}</td>
-            <td> <img src={td.icon} className='img-fluid' alt={td.title}/> </td>
-            <td>{td.budget}</td>
-            <td>
-                {td.completion}%
-                <ProgressBar now={td.completion} label={`${td.completion}%`} visuallyHidden />
-                </td>
+          <tr>
+            <th>PROJECT NAME</th>
+            <th>MEMBERS</th>
+            <th>BUDGET</th>
+            <th>COMPLETION</th>
           </tr>
-        ))}
-      </tbody>
+        </thead>
+        <tbody>
+          {currentRows.map((td, index) => (
+            <tr key={index}>
+              <td>
+                <img
+                  src={td.featured_image}
+                  className="img-fluid"
+                  alt={td.title}
+                  style={{ width: '50px', height: '50px', objectFit: 'cover' }}
+                />{' '}
+                &nbsp; {td.title}
+              </td>
+              <td> {td.custom_fields.members || 'N/A'}</td>
+              <td>$ {td.custom_fields.budget || 'N/A'}</td>
+              <td>
+                {td.custom_fields.completion || 0}%
+                <ProgressBar
+                  now={td.custom_fields.completion || 0}
+                  label={`${td.custom_fields.completion || 0}%`}
+                />
+              </td>
+            </tr>
+          ))}
+        </tbody>
       </Table>
+      <Pagination>{paginationItems}</Pagination>
+    </div>
   );
 }
