@@ -3,19 +3,23 @@ import { Table, Pagination } from 'react-bootstrap';
 import ProgressBar from 'react-bootstrap/ProgressBar';
 
 export default function ProjectTable2() {
-  const [tabData, setTabData] = useState([]); // State to store fetched data
+  const [tabData, setTabData] = useState([]); // Store API data
   const [loading, setLoading] = useState(true); // Loading state
   const [error, setError] = useState(null); // Error state
-  const [rowsPerPage] = useState(6); // Number of rows per page
+  const [rowsPerPage] = useState(6); // Rows per page
   const [currentPage, setCurrentPage] = useState(1);
 
   // Fetch data from API
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('https://zenpex.in/react-dashboard/wp-json/custom/v1/posts');
+        const response = await fetch('https://zenpex.in/react-dashboard/wp-json/custom/v1/posts?v=123');
+        if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
         const result = await response.json();
-        setTabData(result.data); // Assume 'data' contains the array of posts
+
+        if (!result || !result.data) throw new Error('Invalid API response');
+        
+        setTabData(result.data); // Ensure 'data' exists before setting state
         setLoading(false);
       } catch (err) {
         setError(err.message);
@@ -49,13 +53,8 @@ export default function ProjectTable2() {
     );
   }
 
-  if (loading) {
-    return <div>Loading...</div>; // Show loading state
-  }
-
-  if (error) {
-    return <div>Error: {error}</div>; // Show error message
-  }
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error}</div>;
 
   return (
     <div>
@@ -63,37 +62,51 @@ export default function ProjectTable2() {
         <thead>
           <tr>
             <th>PROJECT NAME</th>
+            <th>TECHNOLOGY</th>
+            <th>MEMBERS</th>
             <th>BUDGET</th>
-            <th>STATUS</th>
             <th>COMPLETION</th>
           </tr>
         </thead>
         <tbody>
-          {currentRows.map((td, index) => (
-            <tr key={index}>
-              <td>
-                <img
-                  src={td.featured_image}
-                  className="img-fluid"
-                  alt={td.title}
-                  style={{ width: '50px', height: '50px', objectFit: 'cover' }}
-                />{' '}
-                &nbsp; {td.title}
-              </td>
-              <td>$ {td.custom_fields.budget || 'N/A'}</td>
-              <td>{td.custom_fields.status || 'N/A'}</td>
-              <td>
-                {td.custom_fields.completion || 0}%
-                <ProgressBar
-                  now={td.custom_fields.completion || 0}
-                  label={`${td.custom_fields.completion || 0}%`}
-                />
+          {currentRows.length > 0 ? (
+            currentRows.map((td, index) => (
+              <tr key={index}>
+                <td>
+                  <img
+                    src={td?.featured_image || ''}
+                    className="img-fluid"
+                    alt={td?.title || 'No Title'}
+                    style={{ width: '50px', height: '50px', objectFit: 'cover' }}
+                  />{' '}
+                  &nbsp; {td?.title || 'No Title'}
+                </td>
+                <td>{td?.categories?.join(', ') || 'N/A'}</td> {/* Fixed categories */}
+                <td>
+                  {td?.custom_fields?.assigned_users?.length > 0
+                    ? td.custom_fields.assigned_users.map((user) => user.name).join(', ')
+                    : 'Unassigned'}
+                </td>
+                <td>$ {td?.custom_fields?.budget || 'N/A'}</td>
+                <td>
+                  {td?.custom_fields?.completion || 0}%
+                  <ProgressBar
+                    now={td?.custom_fields?.completion || 0}
+                    label={`${td?.custom_fields?.completion || 0}%`}
+                  />
+                </td>
+              </tr>
+            ))
+          ) : (
+            <tr>
+              <td colSpan="5" className="text-center">
+                No projects available
               </td>
             </tr>
-          ))}
+          )}
         </tbody>
       </Table>
-      <Pagination>{paginationItems}</Pagination>
+      {totalPages > 1 && <Pagination>{paginationItems}</Pagination>}
     </div>
   );
 }

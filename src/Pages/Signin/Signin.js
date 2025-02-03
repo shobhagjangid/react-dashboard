@@ -26,38 +26,39 @@ export default function Signin() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
+    
         // Clear previous messages
         setMessage('');
         setError('');
-
-        // Validate form inputs
+    
         if (!email || !password) {
             setError('Please fill out both fields.');
             return;
         }
-
-        // Set loading state
+    
         setLoading(true);
-
-        // API URL
-        const url = `https://zenpex.in/react-dashboard/wp-json/custom/v1/login?email=${email}&password=${password}`;
-
+    
+        const url = 'https://zenpex.in/react-dashboard/wp-json/custom/v1/login';
+    
         try {
-            const response = await axios.get(url);
-
+            const response = await axios.post(url, 
+                { email, password }, 
+                { headers: { 'Content-Type': 'application/json' } }
+            );
+    
+            console.log("API Response:", response.data);
+    
             if (response.data.status === 'success') {
                 setMessage(response.data.message);
-                setError('');
-                // Redirect to dashboard
                 navigate('/dashboard');
             } else {
                 setError(response.data.message || 'Invalid email or password.');
             }
         } catch (err) {
-            setError('An error occurred. Please try again later.');
+            console.error("API Error:", err);
+            setError(err.response?.data?.message || 'An error occurred. Please try again later.');
         } finally {
-            setLoading(false); // Stop loading
+            setLoading(false);
         }
     };
 

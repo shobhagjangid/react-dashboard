@@ -13,9 +13,16 @@ export default function ProjectTable2() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('https://zenpex.in/react-dashboard/wp-json/custom/v1/posts');
+        const response = await fetch('https://zenpex.in/react-dashboard/wp-json/custom/v1/posts?v=213');
         const result = await response.json();
-        setTabData(result.data); // Assume 'data' contains the array of posts
+
+        // Ensure result.data is an array before setting state
+        if (Array.isArray(result?.data)) {
+          setTabData(result.data);
+        } else {
+          setTabData([]);
+        }
+        
         setLoading(false);
       } catch (err) {
         setError(err.message);
@@ -32,10 +39,10 @@ export default function ProjectTable2() {
   // Pagination logic
   const indexOfLastRow = currentPage * rowsPerPage;
   const indexOfFirstRow = indexOfLastRow - rowsPerPage;
-  const currentRows = tabData.slice(indexOfFirstRow, indexOfLastRow);
+  const currentRows = tabData?.slice(indexOfFirstRow, indexOfLastRow) || [];
 
   // Generate pagination items
-  const totalPages = Math.ceil(tabData.length / rowsPerPage);
+  const totalPages = Math.ceil((tabData?.length || 0) / rowsPerPage);
   const paginationItems = [];
   for (let i = 1; i <= totalPages; i++) {
     paginationItems.push(
@@ -73,20 +80,20 @@ export default function ProjectTable2() {
             <tr key={index}>
               <td>
                 <img
-                  src={td.featured_image}
+                  src={td?.featured_image || ''}
                   className="img-fluid"
-                  alt={td.title}
+                  alt={td?.title || 'No Title'}
                   style={{ width: '50px', height: '50px', objectFit: 'cover' }}
                 />{' '}
-                &nbsp; {td.title}
+                &nbsp; {td?.title || 'No Title'}
               </td>
-              <td> {td.custom_fields.members || 'N/A'}</td>
-              <td>$ {td.custom_fields.budget || 'N/A'}</td>
+              <td>{td?.custom_fields?.members || 'N/A'}</td>
+              <td>$ {td?.custom_fields?.budget || 'N/A'}</td>
               <td>
-                {td.custom_fields.completion || 0}%
+                {td?.custom_fields?.completion || 0}%
                 <ProgressBar
-                  now={td.custom_fields.completion || 0}
-                  label={`${td.custom_fields.completion || 0}%`}
+                  now={td?.custom_fields?.completion || 0}
+                  label={`${td?.custom_fields?.completion || 0}%`}
                 />
               </td>
             </tr>
