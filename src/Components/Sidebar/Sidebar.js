@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
 import { Col } from 'react-bootstrap';
 import weblogo from '../../Assets/Logop.png';
@@ -61,17 +62,17 @@ export default function Sidebar() {
                             </NavLink>
                         </li>
                         <li>
-                            <a href='/Login' className='siderbar-navigation'>
+                            <Link to='/Login' className='siderbar-navigation'>
                                 <span><FaFile /> &nbsp;</span>
                                 Sign In
-                            </a>
+                            </Link>
 
                         </li>
                         <li>
-                            <a href='/Signup' className='siderbar-navigation'>
+                            <Link to='/Signup' className='siderbar-navigation'>
                                 <span><IoRocket /> &nbsp;</span>
                                 Sign Up
-                            </a>
+                            </Link>
 
 
                         </li>

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import splashbg from '../../Assets/splash-bg.jpg';
 import Footer from '../../Components/Footer/Footer';
 import Form from 'react-bootstrap/Form';
@@ -107,9 +108,9 @@ export default function Signin() {
 
                                     <p className="text-center">
                                         Don't have an account?{' '}
-                                        <a href="/signup" style={buttonStyle}>
+                                        <Link to="/Signup" style={buttonStyle}>
                                             Sign up
-                                        </a>
+                                        </Link>
                                     </p>
                                 </div>
                             </Col>

@@ -1,51 +1,30 @@
 //import logo from './logo.svg';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Signin from './Pages/Signin/Signin';
 import Signup from './Pages/Signin/Signup';
-import DashbardHome from './Pages/Dashboard/DashbardHome';
+import DashboardHome from './Pages/Dashboard/DashboardHome'; // Ensure the path is correct
 import Profile from './Pages/Dashboard/Profile';
 import Tables from './Pages/Dashboard/Tables';
 import Billing from './Pages/Dashboard/Billing';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 
 function App() {
   return (
     <>
-
-
-
       <Router>
-       
         <Routes>
+          <Route path='/' element={<Signin />} />
+          <Route path='/signup' element={<Signup />} />
+          <Route path='/login' element={<Signin />} />
+          <Route path='/dashboard' element={<DashboardHome />} /> {/* Fixed typo here */}
 
-
-          {/* <Route exact path='/' element={<Home/>} /> */}
-          <Route exact path='/' element={<Signin />} />
-          <Route exact path='/signup' element={<Signup />} />
-          <Route exact path='/login' element={<Signin />} />
-          <Route exact path='/dashboard' element={<DashbardHome />} />
-
-
-          <Route exact path='/profile' element={<Profile />} />
-
-          <Route exact path='/tables' element={<Tables />} />
-
-          <Route exact path='/billing' element={<Billing />} />
-
+          <Route path='/profile' element={<Profile />} />
+          <Route path='/tables' element={<Tables />} />
+          <Route path='/billing' element={<Billing />} />
         </Routes>
       </Router>
-
-
-
-     
-
-
-
-
-
-
     </>
   );
 }

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import { Link } from 'react-router-dom';
 import Header from '../../Components/Header/Header';
 import Footer from '../../Components/Footer/Footer';
 import coverbg from '../../Assets/singup-cover.jpg';
@@ -160,7 +160,7 @@ export default function Signup() {
               <p className='mb-0'>
                
                 Already have an account? 
-                <a href='/login' style={buttonStyle}><span> Sign in</span></a>
+                <Link to='/login' style={buttonStyle}><span> Sign in</span></Link>
               </p>
             </div>
           </Col>
